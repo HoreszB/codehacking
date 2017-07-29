@@ -29,3 +29,4 @@ class CreatePhotosTable extends Migration
         Schema::drop('photos');
     }
 }
+// 
