@@ -2,6 +2,8 @@
 
 @section('content')
 
+     @include('includes.display_sessions')
+   
     <h1>Users</h1>
 
     <table class="table">
@@ -15,6 +17,7 @@
         <th>Active</th>
         <th>Created</th>
         <th>Updated</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -35,6 +38,16 @@
                 <td>{{ $user->is_active ? "Active" : "Disabled"}}
                 <td>{{ $user->created_at->diffForHumans() }}
                 <td>{{ $user->updated_at->diffForHumans() }}
+                <td>
+                    {!! Form::open(['method' => 'Delete', 'action' => ['AdminUsersController@destroy',$user->id]]) !!}
+
+                    <div class="form-group">
+                        
+                        {!! Form::submit('Delete user', ['class'=>'btn btn-danger']) !!}
+                        
+                    </div>
+                    
+                    {!! Form::close() !!}
             </tr>
         @endforeach
     @endif
