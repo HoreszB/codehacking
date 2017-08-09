@@ -9,3 +9,15 @@
             {{ session('user_created') }}
        </div> 
     @endif
+
+     @if(Session::has('post_created'))
+       <div class="alert alert-success">
+            {{ session('post_created') }}
+       </div> 
+    @endif
+
+    @if(Session::has('post_deleted'))
+       <div class="alert alert-success">
+            {{ session('post_deleted') }}
+       </div> 
+    @endif
